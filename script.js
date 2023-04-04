@@ -1,6 +1,6 @@
 let output = document.getElementById("output");
-let outputImg = document.getElementById("output-img");
-let userInput = document.getElementById("user-input");
+let outputImg = document.getElementById("output_img");
+let userInput = document.getElementById("user_input");
 let downloadButton = document.getElementById("download");
 
 function generate() {
