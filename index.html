@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>QR-code creator</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'><link rel="stylesheet" href="style.css">
+
+</head>
+<div>
+<!-- partial:index.partial.html -->
+<h1 id="title_txt">QR-CODE CREATOR</h1>
+
+<div class="container">
+  <div class="webflow-style-input">
+    <input id="user_input" placeholder="Enter your request..."></input>
+    <button type="submit" onclick="generate()"><i class="icon ion-android-arrow-forward"></i></button>
+  </div>
+</div>
+<!-- partial -->
+<div id="output_count"><div id="output"><img id="output_img" src=""></div></div>
+<div id="download_count"><button id="download" onclick="down()">DOWNLOAD</button></div>
+<script src="script.js"></script>
+</body>
+</html>
