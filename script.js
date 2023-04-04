@@ -1,16 +1,25 @@
 let output = document.getElementById("output");
-let output_img = document.getElementById("output_img");
-let user_input = document.getElementById("user_input");
+let outputImg = document.getElementById("output-img");
+let userInput = document.getElementById("user-input");
+let downloadButton = document.getElementById("download");
 
 function generate() {
-    output_img.src = "https://api.qrserver.com/v1/create-qr-code/?size=498x498&data=" + user_input.value;
+    outputImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=498x498&data=" + userInput.value;
 }
 
 function down() {
-    var link = document.createElement('a');
-    link.href = 'images.jpg';
-    link.download = 'qrcode.jpg';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    fetch(outputImg.src).then(res => res.blob()).then(file => {
+        let tempUrl = URL.createObjectURL(file);
+        const aTag = document.createElement("a");
+        aTag.href = tempUrl;
+        aTag.download = outputImg.src.replace('/.*[\\\/1/','');
+        document.body.appendChild(aTag);
+        aTag.click();
+        downloadBtn.innerText = "Download File";
+        URL.revokeObjectURL(tempUrl);
+        aTag.remove();
+    }).catch(() =>{
+        alert("Failed to download file!");
+        downloadBtn.innerText = "Download File";
+    }) ;
 }
